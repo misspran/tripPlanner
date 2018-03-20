@@ -13,13 +13,16 @@ markerDomEl.style.height = "39px";
 const buildMarker = function (type, coords) {
 	if(type==="hotels"){
 		markerDomEl.style.backgroundImage = `url(${iconURLs.hotels})`
-	}else if(type === 'restaurants'){
+	}
+	if(type === 'restaurants'){
 		markerDomEl.style.backgroundImage = `url(${iconURLs.restaurants})`
 
-	}else if(type==='activities'){
+	}
+	if(type==='activities'){
 		markerDomEl.style.backgroundImage = `url(${iconURLs.activities})`
 	}
-    
+	let newMap = new mapbox.Marker(markerDomEl).setLngLat(coords)
+	return newMap
 };
 
 
@@ -27,4 +30,4 @@ const buildMarker = function (type, coords) {
 
 
 
-module.exports = buildMarker;
+module.exports = { buildMarker };
